@@ -27,46 +27,15 @@
        <li class="pull-down-list">リスト4</li>
      </ul>
    </div>
-   </header>
-  <p>お昼ご飯を決める</p>
+   <button onClick="logList()">要素を取得</button>
 
-  <div class="#">
-    <p id="shopA">パスタ</p>
-    <p id="shopB">カレーライス</p>
-  </div>
-    <button onClick="getElement();">要素を取得</button>
-  <script >
-    function getElement(){
-     element=document.querySelector('#shopB');
-      console.log('選ばれたのは'+element.textContent+'でした');
+   <script>
+    function logList(){
+    let list=document.getElementsByClassName("pll-down-list");
+    console.log(list);
     }
-  </script>
+   </script>
 
-
-<div>
-<p>夕飯候補</p>
-
-<ul class="shop">
-  <li>パスタ</li>
-  <li>カレーライス</li>
-  <li>ラーメン</li>
-  <li>牛丼</li>
-  <li>寿司</li>
-</ul>
-
-</div>
-<button onClick="getElement();">要素を取得</button>
-
-<script>
-function getElement(){
-  elements=document.querySelectorAll('.shop li');
-
-  let len=elements.length;
-  for(let i=0; i<len; i++){
-    console.log(elements.item(i).textContent);
-  }
-}
-</script>
-
+   </header>
  </body>
 </html>
