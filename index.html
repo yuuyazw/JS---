@@ -41,5 +41,32 @@
       console.log('選ばれたのは'+element.textContent+'でした');
     }
   </script>
+
+
+<div>
+<p>夕飯候補</p>
+
+<ul class="shop">
+  <li>パスタ</li>
+  <li>カレーライス</li>
+  <li>ラーメン</li>
+  <li>牛丼</li>
+  <li>寿司</li>
+</ul>
+
+</div>
+<button onClick="getElement();">要素を取得</button>
+
+<script>
+function getElement(){
+  elements=document.querySelectorAll('.shop li');
+
+  let len=elements.length;
+  for(let i=0; i<len; i++){
+    console.log(elements.item(i).textContent);
+  }
+}
+</script>
+
  </body>
 </html>
