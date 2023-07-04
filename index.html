@@ -7,32 +7,26 @@
  </head>
  <body>
   <header>
-   <div class="heading">
-     <h1 class="title">Test Server</h1>
-   </div>
-   <div class="navbar">
-     <ul class="nav-lists">
-       <li class="list-status">
-         現在のリスト；
-         <span id="current-list">選択されていません</span>
-       </li>
-       <li class="background-red" id="lists">
-        リスト
-       </li>
-       <li>カリキュラム変更</li>
-     </ul>
-     <ul class="show-lists hidden" id="Lists">
-       <li class="pull-down-list">乗る</li>
-       <li class="pull-down-list">外れる</li>
-       <li class="pull-down-list">乗る</li>
-       <li class="pull-down-list">クリック</li>
-     </ul>
-   </div>
+    <p>夕食候補</p>
+
+    <ul class="shop">
+      <li>パスタ</li>
+      <li>カレーライス</li>
+      <li>ラーメン</li>
+      <li>牛丼</li>
+      <li>寿司</li>
+    </ul>
+
+    <button onClick="getElement();">要素を取得</button>
 
    <script>
-    window.addEventListener('mouseover',function()
-    {const pullDownButton=document.getElementById("Lists")
-console.log(pullDownButton)});
+    function getElement(){
+      elements=document.querySelectorAll('.shop li');
+      let len =elements.length;
+      for(let i=0;i<len;i++){
+        console.log(elements.item(i).textContent);
+      }
+    };
    </script>
 
   </header>
