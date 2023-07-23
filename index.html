@@ -1,36 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
  <head>
   <link rel="stylesheet" href="style.css">
    <meta charset="UTF-8">
-   <title>JavaScriptの練習サイト</title>
+   <title>JS基礎</title>
  </head>
  <body>
   <header>
-    <p>夕食候補</p>
-
-    <ul class="shop">
-      <li>パスタ</li>
-      <li>カレーライス</li>
-      <li>ラーメン</li>
-      <li>牛丼</li>
-      <li>寿司</li>
-    </ul>
+    <div class="heading">
+      <h1 class="title">Test Server</h1>
+    </div>
+    <div class="navbar">
+      <ul class="nav-lists">
+        <li class="list-staus">
+          現在リスト
+          <span id="current-list">選択されていません</span>
+        </li>
+        <li class="background-red" id="list">
+          リスト
+        </li>
+        <li>カリキュラム変更</li>
+      </ul>
+    
+    </div>
 
     <button onClick="getElement();">要素を取得</button>
-
-   <script>
-    function getElement(){
-      elements=document.querySelectorAll('.shop li');
-      let len =elements.length;
-      for(let i=0;i<len;i++){
-        console.log(elements.item(i).textContent);
-      }
-    };
-   </script>
-
   </header>
+   <script>
+    window.addEventListener('mouseover',function(){
+      const pullDownButton=document.getElementById("lists")
+      console.log("戻る");
+      console.log("外れる");
+      console.log("クリック");
+      console.log("外れる");
+    });
+   </script>
  </body>
 </html>
-
-
