@@ -16,23 +16,31 @@
           現在リスト
           <span id="current-list">選択されていません</span>
         </li>
-        <li class="background-red" id="list">
+        <li class="background-red" id="lists">
           リスト
         </li>
         <li>カリキュラム変更</li>
       </ul>
-    
+      <ul id="lists">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </div>
 
     <button onClick="getElement();">要素を取得</button>
   </header>
    <script>
     window.addEventListener('mouseover',function(){
-      const pullDownButton=document.getElementById("lists")
-      console.log("戻る");
-      console.log("外れる");
-      console.log("クリック");
-      console.log("外れる");
+      const pullDownButton=document.getElementById("lists");
+      pullDownButton.addEventListener('mouseover',function(){
+        pullDownButton.setAttribute("style","background-color:blue;");
+      });
     });
    </script>
  </body>
