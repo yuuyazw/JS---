@@ -32,15 +32,14 @@
         <li></li>
       </ul>
     </div>
-
-    <button onClick="getElement();">要素を取得</button>
   </header>
    <script>
-    window.addEventListener('mouseover',function(){
-      const pullDownButton=document.getElementById("lists");
-      pullDownButton.addEventListener('mouseover',function(){
-        pullDownButton.setAttribute("style","background-color:blue;");
-      });
+    const pullDownButton = document.getElementById("lists");
+    pullDownButton.addEventListener('mouseover', function() {
+      pullDownButton.setAttribute("style", "background-color: blue;");
+    });
+    pullDownButton.addEventListener('click', function() {
+      pullDownButton.setAttribute("style","background-color:green;");
     });
    </script>
  </body>
