@@ -21,26 +21,31 @@
         </li>
         <li>カリキュラム変更</li>
       </ul>
-      <ul id="lists">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+      <ul class="show-lists hidden" id="pull-down">
+        <li>リスト１</li>
+        <li>リスト２</li>
+        <li>リスト３</li>
+        <li>リスト４</li>
       </ul>
     </div>
   </header>
    <script>
-    const pullDownButton = document.getElementById("lists");
-    pullDownButton.addEventListener('mouseover', function() {
-      pullDownButton.setAttribute("style", "background-color: blue;");
-    });
-    pullDownButton.addEventListener('click', function() {
-      pullDownButton.setAttribute("style","background-color:green;");
-    });
+   const pullDownButton = document.getElementById('lists'); // プルダウンをトリガするボタン
+
+pullDownButton.addEventListener('click', function() {
+  const pullDownMenu = document.getElementById('pull-down'); // プルダウンメニュー
+
+  if (pullDownMenu.classList.contains('hidden')) {
+    pullDownMenu.classList.remove('hidden');
+    pullDownButton.style.backgroundColor = 'blue'; // 背景色を青色に変更
+    console.log("表示");
+  } else {
+    pullDownMenu.classList.add('hidden');
+    pullDownButton.style.backgroundColor = ''; // 背景色をデフォルトに戻す
+    console.log("非表示");
+  }
+});
    </script>
  </body>
 </html>
+
