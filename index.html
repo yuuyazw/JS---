@@ -1,51 +1,75 @@
 <!DOCTYPE html>
 <html lang="ja">
- <head>
+<head>
   <link rel="stylesheet" href="style.css">
-   <meta charset="UTF-8">
-   <title>JS基礎</title>
- </head>
- <body>
-  <header>
-    <div class="heading">
-      <h1 class="title">Test Server</h1>
-    </div>
-    <div class="navbar">
-      <ul class="nav-lists">
-        <li class="list-staus">
-          現在リスト
-          <span id="current-list">選択されていません</span>
-        </li>
-        <li class="background-red" id="lists">
-          リスト
-        </li>
-        <li>カリキュラム変更</li>
-      </ul>
-      <ul class="show-lists hidden" id="pull-down">
-        <li>リスト１</li>
-        <li>リスト２</li>
-        <li>リスト３</li>
-        <li>リスト４</li>
-      </ul>
-    </div>
-  </header>
-   <script>
-   const pullDownButton = document.getElementById('lists'); // プルダウンをトリガするボタン
+  <meta charset="UTF-8">
+  <title>JS基礎</title>
+</head>
+<body>
+<header>
+  <div class="heading">
+    <h1 class="title">Test Server</h1>
+  </div>
+  <div class="navbar">
+    <ul class="nav-lists">
+      <li class="list-staus">
+        現在リスト
+        <span id="current-list">選択されていません</span>
+      </li>
+      <li class="background-red" id="lists">
+        リスト
+      </li>
+      <li>カリキュラム変更</li>
+    </ul>
+    <ul class="show-lists hidden" id="pull-down">
+      <li class="pull-down-list">リスト１</li>
+      <li class="pull-down-list">リスト２</li>
+      <li class="pull-down-list">リスト３</li>
+      <li class="pull-down-list">リスト４</li>
+    </ul>
+  </div>
+</header>
+<script>
+  const pullDownButton = document.getElementById("lists");
+  const pullDownParents = document.getElementById("pull-down");
+  const currentList = document.getElementById("current-list");
 
-pullDownButton.addEventListener('click', function() {
-  const pullDownMenu = document.getElementById('pull-down'); // プルダウンメニュー
+  const pullDownChild = document.querySelectorAll(".pull-down-list");
 
-  if (pullDownMenu.classList.contains('hidden')) {
-    pullDownMenu.classList.remove('hidden');
-    pullDownButton.style.backgroundColor = 'blue'; // 背景色を青色に変更
-    console.log("表示");
-  } else {
-    pullDownMenu.classList.add('hidden');
-    pullDownButton.style.backgroundColor = ''; // 背景色をデフォルトに戻す
-    console.log("非表示");
-  }
-});
-   </script>
- </body>
+  pullDownButton.addEventListener("mouseover", function() {
+    this.style.backgroundColor = "blue";
+    console.log("乗ったら青色");
+  });
+
+  pullDownButton.addEventListener("click", function() {
+    if (pullDownParents.classList.contains("hidden")) {
+      pullDownParents.classList.remove("hidden");
+      pullDownButton.style.backgroundColor = "green"; // 背景色を緑色に変更
+      console.log("表示");
+    } else {
+      pullDownParents.classList.add("hidden");
+      pullDownButton.style.backgroundColor = ""; // 背景色をデフォルトに戻す
+      console.log("非表示");
+    }
+  });
+
+  pullDownChild.forEach(function(list) {
+    list.addEventListener("mouseover", function() {
+      const value = list.innerHTML;
+      currentList.innerHTML = value; // マウスが乗ったリスト名に変更
+    });
+
+    list.addEventListener("mouseout", function() {
+      currentList.innerHTML = "選択されていません"; // マウスが外れた際に元のテキストに戻す
+    });
+
+    list.addEventListener("click", function() {
+      const value = list.innerHTML;
+      currentList.innerHTML = value; // 選択されたリスト名に変更
+      pullDownParents.classList.add("hidden"); // プルダウンを非表示に
+      pullDownButton.style.backgroundColor = ""; // ボタンの背景色をデフォルトに戻す
+    });
+  });
+</script>
+</body>
 </html>
-
