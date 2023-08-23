@@ -22,10 +22,10 @@
       <li>カリキュラム変更</li>
     </ul>
     <ul class="show-lists hidden" id="pull-down">
-      <li class="pull-down-list">リスト１</li>
-      <li class="pull-down-list">リスト２</li>
-      <li class="pull-down-list">リスト３</li>
-      <li class="pull-down-list">リスト４</li>
+      <li class="pull-down-list" data-url="url1.html">リスト１</li>
+      <li class="pull-down-list" data-url="url2.html">リスト２</li>
+      <li class="pull-down-list" data-url="url3.html">リスト３</li>
+      <li class="pull-down-list" data-url="url4.html">リスト４</li>
     </ul>
   </div>
 </header>
@@ -44,11 +44,11 @@
   pullDownButton.addEventListener("click", function() {
     if (pullDownParents.classList.contains("hidden")) {
       pullDownParents.classList.remove("hidden");
-      pullDownButton.style.backgroundColor = "green"; // 背景色を緑色に変更
+      pullDownButton.style.backgroundColor = "red"; // 背景色を緑色に変更
       console.log("表示");
     } else {
       pullDownParents.classList.add("hidden");
-      pullDownButton.style.backgroundColor = ""; // 背景色をデフォルトに戻す
+      pullDownButton.style.backgroundColor = "red"; // 背景色をデフォルトに戻す
       console.log("非表示");
     }
   });
@@ -68,6 +68,12 @@
       currentList.innerHTML = value; // 選択されたリスト名に変更
       pullDownParents.classList.add("hidden"); // プルダウンを非表示に
       pullDownButton.style.backgroundColor = ""; // ボタンの背景色をデフォルトに戻す
+
+      // リストに設定された data-url 属性から URL を取得し、遷移する
+      const url = list.getAttribute("data-url");
+      if ("https://github.com/yuuyazw") {
+        window.location.href = "https://github.com/yuuyazw";
+      }
     });
   });
 </script>
